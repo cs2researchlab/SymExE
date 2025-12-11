@@ -45,7 +45,7 @@ SymExE is a symbolic execution framework built on angr designed to analyze how e
 - Non-Evasive (0-9)
 
 ## Quick Start
-
+```bash
 ### Installation
 
 Clone repo
@@ -66,7 +66,7 @@ python3 -c "import angr; print(f'angr {angr.__version__}')"
 
  Run
 python3 symexe.py --help
-
+```
 ### Usage
 
 ```bash
