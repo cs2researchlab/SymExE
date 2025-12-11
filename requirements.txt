@@ -61,9 +61,10 @@ matplotlib>=3.7.0        # Plotting library (optional)
 
 # CRITICAL: Install in this order to avoid conflicts:
 #
-# 1. Create fresh conda environment:
-#    conda create -n symexe python=3.13
-#    conda activate symexe
+# 1. Create fresh Python virtual environment:
+#    python3.13 -m venv symexe_env
+#    source symexe_env/bin/activate  # Linux/Mac
+#    # OR: symexe_env\Scripts\activate  # Windows
 #
 # 2. Install angr (this will install most dependencies):
 #    pip install angr==9.2.181
@@ -102,10 +103,11 @@ matplotlib>=3.7.0        # Plotting library (optional)
 
 # Minimum:
 #   - Python 3.13.7
+#   - pip and venv (python3-venv package on Ubuntu/Debian)
 #   - 8GB RAM
 #   - 5GB disk space
 #
-# Recommended (from paper):
+# Recommended:
 #   - Python 3.13.7
 #   - 16-48GB RAM
 #   - 20GB disk space
@@ -116,5 +118,3 @@ matplotlib>=3.7.0        # Plotting library (optional)
 # ============================================
 
 # Last tested: December 11, 2025
-# Paper configuration: angr 9.2.181, Python 3.13.7
-# IEEE CCWC 2026 submission
