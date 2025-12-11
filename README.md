@@ -93,6 +93,7 @@ python3 symexe.py samples/ --output results/
 
 Size Groups (for visualization):
 - 0-100 KB, 100-200 KB, 200-300 KB, 300-400 KB, 400-500 KB
+- 20 samples per size group
 
 Total: 100 PE32 Windows executables
 
@@ -120,7 +121,7 @@ For Extended Analysis:
 
 - Rachel Soubier: rcs2002@uncw.edu
 - Dr. Ajay Kumara: makanahalliannaiaha@uncw.edu
-- Shahid Ali (sal9310@uncw.edu)
+- Shahid Ali: sal9310@uncw.edu
 
 University of North Carolina Wilmington  
 Department of Computer Science
