@@ -1,9 +1,6 @@
 # SymExE - Symbolic Execution for Evasive Malware
 
-
-## Paper Reference
-
-Title: Characterizing Symbolic Execution Behavior on Evasive Malware: A Large-Scale Analysis
+ Characterizing Symbolic Execution Behavior on Evasive Malware: A Large-Scale Analysis
 
 Authors:
 - Rachel Soubier (rcs2002@uncw.edu)
@@ -41,11 +38,8 @@ Analysis of 100 evasive malware samples revealed:
 | Average Runtime  | ~36 seconds per binary (600s timeout)                  |
 | Total Runtime    | ~60 minutes for 100 samples                            |
 ----------------------------------------------------------------------------|
-Key Insight: Evasive tactics (obfuscation, environmental checks, complex branching) are the primary drivers of symbolic execution difficulty, not binary size.
+Key Insight: Evasive tactics (obfuscation, environmental checks, complex branching) are the primary drivers of the difficulty of symbolic execution, not binary size.
 
----
-
-## Features
 
 ### Evasion Detection
 
@@ -67,8 +61,6 @@ Key Insight: Evasive tactics (obfuscation, environmental checks, complex branchi
 - Moderately Evasive (40-69)
 - Minimally Evasive (10-39)
 - Non-Evasive (0-9)
-
----
 
 ## Quick Start
 
@@ -98,8 +90,6 @@ python3 symexe.py malware.exe \
 # Batch analysis (100 samples)
 python3 symexe.py samples/ --output results/
 ```
-
----
 
 ## Dataset
 
