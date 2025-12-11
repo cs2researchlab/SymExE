@@ -1,0 +1,120 @@
+# SymExE Requirements
+# IEEE CCWC 2026 Paper - Exact Configuration
+# Python 3.13.7 (as specified in paper Page 4)
+
+# ============================================
+# Core Dependencies (from paper)
+# ============================================
+
+# angr - Binary analysis framework (REQUIRED - exact version from paper)
+angr==9.2.181
+
+# claripy - Constraint solver frontend (REQUIRED - exact version from paper)
+claripy==9.2.181
+
+# Additional angr components (automatically installed with angr, but listing for completeness)
+archinfo==9.2.181
+pyvex==9.2.181
+cle==9.2.181
+ailment==9.2.181
+
+# ============================================
+# SMT Solver (from paper)
+# ============================================
+
+# z3-solver - Z3 SMT solver (BackendZ3 as specified in paper)
+z3-solver>=4.12.0.0
+
+# ============================================
+# Standard Dependencies
+# ============================================
+
+# Core Python libraries
+capstone>=5.0.0          # Disassembly engine (used by angr)
+unicorn>=2.0.0           # CPU emulator (used by angr)
+pycparser>=2.21          # C parser (used by angr)
+
+# Networking (for malware with network capabilities)
+networkx>=2.8            # Graph library (used by angr CFG)
+
+# Data handling
+sortedcontainers>=2.4.0  # Sorted data structures (used by angr)
+
+# ============================================
+# Optional but Recommended
+# ============================================
+
+# Performance and analysis
+psutil>=5.9.0            # System monitoring (memory usage tracking)
+tqdm>=4.65.0             # Progress bars (for batch analysis)
+
+# Data processing (for results analysis)
+pandas>=2.0.0            # Data analysis (optional, for CSV processing)
+numpy>=1.24.0            # Numerical computing (optional)
+
+# Visualization (optional, for generating plots)
+matplotlib>=3.7.0        # Plotting library (optional)
+
+# ============================================
+# Installation Notes
+# ============================================
+
+# CRITICAL: Install in this order to avoid conflicts:
+#
+# 1. Create fresh conda environment:
+#    conda create -n symexe python=3.13
+#    conda activate symexe
+#
+# 2. Install angr (this will install most dependencies):
+#    pip install angr==9.2.181
+#
+# 3. Install remaining dependencies:
+#    pip install -r requirements.txt
+#
+# 4. Verify installation:
+#    python3 -c "import angr; print(f'angr {angr.__version__}')"
+#    Should print: angr 9.2.181
+#
+# 5. Test SymExE:
+#    python3 symexe.py --help
+
+# ============================================
+# Troubleshooting
+# ============================================
+
+# If you encounter "externally managed environment" error on some systems:
+#   pip install --break-system-packages angr==9.2.181
+#
+# If you encounter z3 conflicts:
+#   pip uninstall z3-solver
+#   pip install z3-solver>=4.12.0.0
+#
+# If angr fails to import:
+#   pip uninstall angr claripy archinfo pyvex cle ailment
+#   pip install angr==9.2.181
+#
+# For memory issues during installation:
+#   pip install --no-cache-dir angr==9.2.181
+
+# ============================================
+# System Requirements
+# ============================================
+
+# Minimum:
+#   - Python 3.13.7
+#   - 8GB RAM
+#   - 5GB disk space
+#
+# Recommended (from paper):
+#   - Python 3.13.7
+#   - 16-48GB RAM
+#   - 20GB disk space
+#   - Linux OS (Ubuntu 20.04+, Kali 2025.3)
+
+# ============================================
+# Version Information
+# ============================================
+
+# Last tested: December 11, 2025
+# Paper configuration: angr 9.2.181, Python 3.13.7
+# IEEE CCWC 2026 submission
