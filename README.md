@@ -48,23 +48,23 @@ SymExE is a symbolic execution framework built on angr designed to analyze how e
 
 ### Installation
 
-# Clone repo
+Clone repo
 https://github.com/cs2researchlab/SymExE.git
 cd SymExE
 
-# Create virtual environment
+ Create virtual environment
 python3 -m venv symexe_env
 
-# Activate (Linux/Mac)
+Activate (Linux/Mac)
 source symexe_env/bin/activate
 
-# Install
+ Install
 pip install -r requirements.txt
 
-# Verify
+ Verify
 python3 -c "import angr; print(f'angr {angr.__version__}')"
 
-# Run
+ Run
 python3 symexe.py --help
 
 ### Usage
