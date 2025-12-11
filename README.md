@@ -23,24 +23,6 @@ SymExE is a symbolic execution framework built on angr designed to analyze how e
 4. Key finding: Size does not equal complexity (no correlation between binary size and SE difficulty)
 5. Open-source framework for reproducibility
 
----
-
-## Research Findings
-
-Analysis of 100 evasive malware samples revealed:
-----------------------------------------------------------------------------|
-| Metric           | Finding                                                |
-|------------------|--------------------------------------------------------|
-| Dataset          | 100 PE32 Windows executables (0-500KB)                 |
-| Malware Families | 10 families (Emotet, TrickBot, Zeus, etc.)             |
-| Key Discovery    | No correlation between binary size and SE difficulty   |
-| Primary Factor   | Structural complexity and evasive logic drive SE strain|
-| Average Runtime  | ~36 seconds per binary (600s timeout)                  |
-| Total Runtime    | ~60 minutes for 100 samples                            |
-----------------------------------------------------------------------------|
-Key Insight: Evasive tactics (obfuscation, environmental checks, complex branching) are the primary drivers of the difficulty of symbolic execution, not binary size.
-
-
 ### Evasion Detection
 
 - Anti-Debug (23 indicators): IsDebuggerPresent, RDTSC, INT3
