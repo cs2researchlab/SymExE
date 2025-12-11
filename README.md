@@ -90,7 +90,7 @@ Total: 100 PE32 Windows executables
 
 ## Configuration
 
-Paper Configuration:
+Configuration:
 - Dataset: 100 samples
 - Max States: 2500
 - Timeout: 600s (10 minutes)
@@ -110,6 +110,7 @@ For Extended Analysis:
 
 - Rachel Soubier: rcs2002@uncw.edu
 - Dr. Ajay Kumara: makanahalliannaiaha@uncw.edu
+- Shahid Ali (sal9310@uncw.edu)
 
 University of North Carolina Wilmington  
 Department of Computer Science
