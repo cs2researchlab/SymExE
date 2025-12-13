@@ -99,7 +99,7 @@ brew install python@3.13
 
 ### Issue: "python3.13: command not found"
 
-**Solution:**
+Solution.
 ```bash
 # Use python3 instead
 python3 -m venv symexe_env
@@ -107,9 +107,9 @@ python3 -m venv symexe_env
 # Or install Python 3.13
 ```
 
-### Issue: "pip install angr" fails
+### Issue: pip install angr fails
 
-**Solution:**
+Solution.
 ```bash
 # On some systems, use --break-system-packages
 pip install --break-system-packages angr==9.2.181
@@ -121,7 +121,7 @@ pip install angr==9.2.181
 
 ### Issue: Memory errors during installation
 
-**Solution:**
+Solution.
 ```bash
 # Install without cache
 pip install --no-cache-dir angr==9.2.181
@@ -129,7 +129,7 @@ pip install --no-cache-dir angr==9.2.181
 
 ### Issue: z3-solver conflicts
 
-**Solution:**
+Solution.
 ```bash
 # Uninstall and reinstall
 pip uninstall z3-solver
@@ -140,7 +140,7 @@ pip install z3-solver>=4.12.0.0
 
 ## Verification
 
-After installation, run these tests:
+After installation, run these tests.
 
 ```bash
 # Test 1: Check Python version
