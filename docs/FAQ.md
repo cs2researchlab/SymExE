@@ -12,7 +12,7 @@ SymExE is a symbolic execution framework for analyzing how evasive malware affec
 
 ### Who created SymExE?
 
-SymExE was developed by Rachel Soubier, Hunter Soubier, Shahid Ali, and Dr. Ajay Kumara Makanahalli Annaiah at the University of North Carolina Wilmington.
+SymExE was developed by Rachel Soubier, Shahid Ali, and Dr. Ajay Kumara Makanahalli Annaiah at the University of North Carolina Wilmington.
 
 ### Is SymExE open source?
 
@@ -73,7 +73,7 @@ Currently no. SymExE is designed for Windows PE32 executables only.
 
 ### Can I change the timeout?
 
-Yes! Use `--timeout` flag:
+Yes! Use `--timeout` flag.
 ```bash
 python3 symexe.py malware.exe --timeout 4500
 ```
@@ -90,9 +90,9 @@ python3 symexe.py samples_directory/ --output results/
 
 ### What format are the results?
 
-Results are provided in two formats:
-- **JSON**: Individual results per binary
-- **CSV**: Aggregate results for all binaries
+Results are provided in two formats.
+- JSON. Individual results per binary
+- CSV. Aggregate results for all binaries
 
 ### What metrics are collected?
 
@@ -104,9 +104,9 @@ Results are provided in two formats:
 - Evasion indicator counts
 - States-to-paths ratio
 
-### What does "evasiveness score" mean?
+### What does evasiveness score mean?
 
-A 0-100 score measuring how evasive the binary is:
+A 0-100 score measuring how evasive the binary is
 - 70-100: Highly Evasive
 - 40-69: Moderately Evasive
 - 10-39: Minimally Evasive
@@ -132,19 +132,6 @@ Some binaries may not trigger certain metrics (e.g., if symbolic execution can't
 
 ## Academic Questions
 
-### Can I cite this work?
-
-Yes! Citation:
-
-```bibtex
-@inproceedings{soubier2026symexe,
-  title={Characterizing Symbolic Execution Behavior on Evasive Malware},
-  author={Soubier, Rachel and Soubier, Hunter and Ali, Shahid and 
-          Makanahalli Annaiah, Ajay Kumara},
-  booktitle={IEEE CCWC 2026},
-  year={2026}
-}
-```
 
 ### Can I use this for my research?
 
@@ -218,7 +205,8 @@ For questions not answered here:
 - Check [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 - Open a GitHub issue
 - Email: rcs2002@uncw.edu
+- Email: sal9310@uncw.edu
 
 ---
 
-Last updated: December 11, 2025
+Last updated: December 12, 2025
