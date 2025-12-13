@@ -160,14 +160,6 @@ python3 -c "import angr, claripy, z3; print('All imports OK')"
 
 ---
 
-## Next Steps
-
-- See [USAGE_EXAMPLES.md](examples/USAGE_EXAMPLES.md) for usage examples
-- See [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for common issues
-- See [README.md] for overview
-
----
-
 ## Docker Installation (Alternative)
 
 For a containerized installation:
