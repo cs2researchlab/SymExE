@@ -8,24 +8,24 @@ Common issues and solutions for SymExE.
 
 ### Python Version Not Found
 
-**Problem:**
+Problem.
 ```
-python3.13: command not found
+python3.13 command not found
 ```
 
-**Solutions:**
+Solutions.
 
-1. Check installed Python versions:
+1. Check installed Python versions.
 ```bash
 python3 --version
 ```
 
-2. Use available Python 3.x:
+2. Use available Python 3.x.
 ```bash
 python3 -m venv symexe_env
 ```
 
-3. Install Python 3.13:
+3. Install Python 3.13.
 ```bash
 # Ubuntu/Debian
 sudo apt-get install python3.13
@@ -38,25 +38,25 @@ brew install python@3.13
 
 ### angr Installation Fails
 
-**Problem:**
+Problem.
 ```
-ERROR: Could not install packages due to an OSError
+ERROR Could not install packages due to an OSError
 ```
 
-**Solutions:**
+Solutions.
 
-1. Upgrade pip first:
+1. Upgrade pip first.
 ```bash
 pip install --upgrade pip
 pip install angr==9.2.181
 ```
 
-2. Use --break-system-packages (Linux):
+2. Use --break-system-packages (Linux).
 ```bash
 pip install --break-system-packages angr==9.2.181
 ```
 
-3. Install without cache:
+3. Install without cache.
 ```bash
 pip install --no-cache-dir angr==9.2.181
 ```
@@ -65,26 +65,26 @@ pip install --no-cache-dir angr==9.2.181
 
 ### Memory Errors During Installation
 
-**Problem:**
+Problem.
 ```
 MemoryError: Unable to allocate...
 ```
 
-**Solutions:**
+Solutions.
 
 1. Install without cache:
 ```bash
 pip install --no-cache-dir -r requirements.txt
 ```
 
-2. Install packages one at a time:
+2. Install packages one at a time.
 ```bash
 pip install angr==9.2.181
 pip install claripy==9.2.181
 pip install z3-solver
 ```
 
-3. Increase swap space (Linux):
+3. Increase swap space (Linux).
 ```bash
 sudo fallocate -l 4G /swapfile
 sudo chmod 600 /swapfile
@@ -96,20 +96,20 @@ sudo swapon /swapfile
 
 ### z3-solver Conflicts
 
-**Problem:**
+Problem.
 ```
-ERROR: Cannot uninstall 'z3-solver'
+ERROR Cannot uninstall 'z3-solver'
 ```
 
-**Solutions:**
+Solutions.
 
-1. Force uninstall:
+1. Force uninstall.
 ```bash
 pip uninstall -y z3-solver
 pip install z3-solver>=4.12.0.0
 ```
 
-2. Use virtual environment (recommended):
+2. Use virtual environment (recommended).
 ```bash
 python3 -m venv fresh_env
 source fresh_env/bin/activate
@@ -122,12 +122,12 @@ pip install -r requirements.txt
 
 ### Binary Not Loading
 
-**Problem:**
+Problem.
 ```
-ERROR: Failed to load binary
+ERROR Failed to load binary
 ```
 
-**Solutions:**
+Solutions.
 
 1. Check file exists:
 ```bash
@@ -141,7 +141,7 @@ file malware.exe
 # Should show: PE32 executable
 ```
 
-3. Check permissions:
+3. Check permissions.
 ```bash
 chmod +r malware.exe
 ```
@@ -150,22 +150,22 @@ chmod +r malware.exe
 
 ### Timeout on Every Binary
 
-**Problem:**
+Problem.
 All binaries hit the 600-second timeout.
 
-**Solutions:**
+Solutions.
 
-1. Reduce max states:
+1. Reduce max states.
 ```bash
 python3 symexe.py malware.exe --max-states 1000 --timeout 600
 ```
 
-2. Reduce timeout for testing:
+2. Reduce timeout for testing.
 ```bash
 python3 symexe.py malware.exe --timeout 300
 ```
 
-3. Check system resources:
+3. Check system resources.
 ```bash
 free -h  # Check available memory
 top      # Check CPU usage
@@ -175,12 +175,12 @@ top      # Check CPU usage
 
 ### Memory Errors During Analysis
 
-**Problem:**
+Problem.
 ```
 MemoryError: Cannot allocate memory
 ```
 
-**Solutions:**
+Solutions.
 
 1. Reduce max states:
 ```bash
@@ -197,24 +197,24 @@ python3 symexe.py malware.exe --max-states 1500
 
 ### No Evasion Indicators Found
 
-**Problem:**
+Problem.
 All binaries show 0 evasion indicators.
 
-**Solutions:**
+Solutions.
 
 1. Check if binary is actually evasive malware (not benign software)
 
-2. Verify angr loaded correctly:
+2. Verify angr loaded correctly.
 ```bash
 python3 -c "import angr; print('OK')"
 ```
 
-3. Check verbose output:
+3. Check verbose output.
 ```bash
 python3 symexe.py malware.exe --verbose
 ```
 
-4. Inspect binary manually:
+4. Inspect binary manually.
 ```bash
 strings malware.exe | grep -i "debug\|vmware\|vbox"
 ```
@@ -223,10 +223,10 @@ strings malware.exe | grep -i "debug\|vmware\|vbox"
 
 ### JSON Output Empty
 
-**Problem:**
+Problem.
 Output JSON file is empty or missing fields.
 
-**Solutions:**
+Solutions.
 
 1. Check if analysis completed:
 ```bash
@@ -234,12 +234,12 @@ Output JSON file is empty or missing fields.
 python3 symexe.py malware.exe -o test.json
 ```
 
-2. Check for errors in output:
+2. Check for errors in output.
 ```bash
 python3 symexe.py malware.exe -o test.json 2>&1 | tee error.log
 ```
 
-3. Verify output directory exists:
+3. Verify output directory exists.
 ```bash
 mkdir -p results/
 python3 symexe.py malware.exe -o results/test.json
@@ -251,17 +251,17 @@ python3 symexe.py malware.exe -o results/test.json
 
 ### Analysis Very Slow
 
-**Problem:**
+Problem.
 Analysis takes much longer than expected.
 
-**Solutions:**
+Solutions.
 
 1. Check system specs meet minimum requirements:
    - 8GB+ RAM
    - Multi-core CPU
    - SSD storage
 
-2. Reduce timeout:
+2. Reduce timeout.
 ```bash
 python3 symexe.py malware.exe --timeout 300
 ```
@@ -275,24 +275,24 @@ python3 select_representative_subset.py samples/ subset.json
 
 ### Disk Space Full
 
-**Problem:**
+Problem.
 ```
 No space left on device
 ```
 
-**Solutions:**
+Solutions.
 
-1. Check disk space:
+1. Check disk space.
 ```bash
 df -h
 ```
 
-2. Clean temporary files:
+2. Clean temporary files.
 ```bash
 rm -rf /tmp/angr_*
 ```
 
-3. Remove old results:
+3. Remove old results.
 ```bash
 rm -rf results_old/
 ```
@@ -301,28 +301,28 @@ rm -rf results_old/
 
 ## Platform-Specific Issues
 
-### Windows: "pip not recognized"
+### Windows: pip not recognized
 
-**Solution:**
+Solution.
 ```cmd
 python -m pip install -r requirements.txt
 ```
 
 ### Windows: Permission Denied
 
-**Solution:**
+Solution.
 Run Command Prompt as Administrator
 
 ### macOS: SSL Certificate Error
 
-**Solution:**
+Solution.
 ```bash
 /Applications/Python\ 3.13/Install\ Certificates.command
 ```
 
-### Linux: "externally-managed-environment"
+### Linux: externally-managed-environment
 
-**Solution:**
+Solution.
 ```bash
 # Use virtual environment (recommended)
 python3 -m venv symexe_env
@@ -336,9 +336,9 @@ pip install --break-system-packages -r requirements.txt
 
 ## Import Errors
 
-### "No module named 'angr'"
+### No module named 'angr'
 
-**Solution:**
+Solution.
 ```bash
 # Verify virtual environment is activated
 which python3
@@ -348,16 +348,16 @@ which python3
 pip install angr==9.2.181
 ```
 
-### "No module named 'claripy'"
+### No module named 'claripy'
 
-**Solution:**
+Solution.
 ```bash
 pip install claripy==9.2.181
 ```
 
-### "No module named 'z3'"
+### No module named 'z3'
 
-**Solution:**
+Solution.
 ```bash
 pip install z3-solver>=4.12.0.0
 ```
@@ -368,11 +368,11 @@ pip install z3-solver>=4.12.0.0
 
 ### CSV File Not Generated
 
-**Problem:**
+Problem.
 JSON files created but no CSV aggregate.
 
-**Solution:**
-CSV is only generated for batch analysis:
+Solution.
+CSV is only generated for batch analysis.
 ```bash
 # Single binary - no CSV
 python3 symexe.py binary.exe -o result.json
@@ -385,12 +385,12 @@ python3 symexe.py samples/ -o results/
 
 ### Cannot Read JSON Output
 
-**Problem:**
+Problem.
 ```
 JSONDecodeError: Expecting value
 ```
 
-**Solution:**
+Solution.
 ```bash
 # Check if file is valid JSON
 python3 -m json.tool result.json
@@ -435,16 +435,14 @@ logging.getLogger('angr').setLevel(logging.DEBUG)
 
 ## Getting Help
 
-If your issue isn't listed here:
+If your issue isn't listed here.
 
-1. **Check FAQ**: See [FAQ.md](FAQ.md)
-2. **Check GitHub Issues**: Search existing issues
-3. **Open New Issue**: Provide:
+1. Check GitHub Issues: Search existing issues
+2. Open New Issue: Provide:
    - Error message (full output)
    - OS and Python version
    - angr version
    - Steps to reproduce
-4. **Contact**: rcs2002@uncw.edu
 
 ---
 
@@ -460,4 +458,4 @@ If your issue isn't listed here:
 
 ---
 
-Last updated: December 11, 2025
+Last updated: December 12, 2025
