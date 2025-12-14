@@ -118,7 +118,7 @@ class Colors:
     END = '\033[0m'
 
 # =====================================
-# Comprehensive Evasion Taxonomy (from SymExE paper Table 1)
+# Comprehensive Evasion Taxonomy
 # =====================================
 
 # Anti-Debug APIs (detection and evasion)
@@ -153,7 +153,7 @@ SANDBOX_EVASION_APIS = {
     'WaitForMultipleObjects', 'GetIdleTime', 'GetTickCount64'
 }
 
-# Process Injection APIs (from paper - TrickBot, LokiBot, IcedID techniques)
+# Process Injection APIs (from - TrickBot, LokiBot, IcedID techniques)
 PROCESS_INJECTION_APIS = {
     'CreateRemoteThread', 'WriteProcessMemory', 'VirtualAllocEx', 'OpenProcess',
     'SetThreadContext', 'GetThreadContext', 'ResumeThread', 'SuspendThread',
@@ -169,14 +169,14 @@ CRYPTO_APIS = {
     'CryptReleaseContext', 'CryptDestroyHash', 'CryptDestroyKey'
 }
 
-# Persistence APIs (from paper malware families)
+# Persistence APIs (from malware families)
 PERSISTENCE_APIS = {
     'RegCreateKeyExA', 'RegCreateKeyExW', 'RegSetValueExA', 'RegSetValueExW',
     'CreateServiceA', 'CreateServiceW', 'StartServiceA', 'StartServiceW',
     'SetWindowsHookExA', 'SetWindowsHookExW', 'SHGetFolderPathA'
 }
 
-# VM Indicator Strings (from paper - anti-VM detection)
+# VM Indicator Strings (from - anti-VM detection)
 VM_INDICATORS = [
     'vmware', 'virtualbox', 'vbox', 'qemu', 'xen', 'parallels',
     'vmtoolsd', 'vmmouse', 'vmhgfs', 'vboxservice', 'vboxtray',
@@ -251,7 +251,7 @@ class EvasionSymbolicExecutor:
             print(f"╚══════════════════════════════════════════════════════════╝{Colors.END}\n")
         
         try:
-            # Phase 0: Verify file type and hash (from paper Figure 1)
+            # Phase 0: Verify file type and hash
             if self.verbose:
                 print(f"{Colors.CYAN}[*] Phase 0: File verification...{Colors.END}")
             
@@ -259,7 +259,7 @@ class EvasionSymbolicExecutor:
             if not binary_path.exists():
                 raise FileNotFoundError(f"Binary not found: {self.binary_path}")
             
-            # Calculate hash (as shown in paper Figure 1)
+            # Calculate hash
             import hashlib
             with open(self.binary_path, 'rb') as f:
                 file_hash = hashlib.sha256(f.read()).hexdigest()
@@ -282,13 +282,13 @@ class EvasionSymbolicExecutor:
             # Store hash in results
             self.file_hash = file_hash
             
-            # Phase 1: Static evasion detection (from paper)
+            # Phase 1: Static evasion detection
             if self.verbose:
                 print(f"{Colors.CYAN}[*] Phase 1: Static evasion analysis...{Colors.END}")
             
             self._detect_evasion_static()
             
-            # Phase 2: Symbolic execution (from paper)
+            # Phase 2: Symbolic execution
             if self.verbose:
                 print(f"{Colors.CYAN}[*] Phase 2: Symbolic execution...{Colors.END}")
             
@@ -509,7 +509,7 @@ class EvasionSymbolicExecutor:
         CRITICAL: Prevents crashes during symbolic execution
         """
         try:
-            # Complete Windows API hooks (87 total as mentioned in paper)
+            # Complete Windows API hooks (87 total)
             hooks = {
                 'kernel32.dll': [
                     # Time/Tick functions (anti-debug)
@@ -915,7 +915,7 @@ class EvasionSymbolicExecutor:
             # Detailed evasion breakdown
             'evasion_details': dict(self.evasion_techniques),
             
-            # Symbolic execution statistics (paper metrics - Figure 2)
+            # Symbolic execution statistics
             'symbolic_execution_stats': {
                 'states_analyzed': len(self.paths_log),              # Paper: "States Analyzed"
                 'paths_explored': len(self.paths_explored),           # Paper: paths explored
@@ -927,7 +927,7 @@ class EvasionSymbolicExecutor:
                 'avg_constraints_per_state': round(avg_constraints_per_state, 2)
             },
             
-            # Summary metrics (paper Section V results format)
+            # Summary metrics
             'summary': {
                 'total_static_indicators': total_static,
                 'total_se_indicators': total_se,
