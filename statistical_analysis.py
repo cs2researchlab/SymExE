@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Statistical Analysis for IEEE CCWC 2026 Camera-Ready Revisions
+Statistical Analysis
 
-Addresses Reviewer 3's concerns about statistical rigor by calculating:
+Addresses  3's concerns about statistical rigor by calculating:
 - Pearson correlation coefficient (binary size vs SE difficulty)
 - One-way ANOVA across size groups
 - 95% confidence intervals
@@ -26,7 +26,7 @@ def calculate_correlation(df):
     """
     Calculate Pearson correlation between binary size and states-to-paths ratio.
     
-    Addresses Reviewer 3: "If you want to claim 'no relationship between size 
+    Addresses 3: "If you want to claim 'no relationship between size 
     and solver strain,' you need to show me the numbers that back that up. 
     What's the p-value?"
     """
