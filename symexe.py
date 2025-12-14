@@ -73,10 +73,9 @@ Research Contributions:
     5. Open-source framework for reproducibility
 
 Citation:
-    @inproceedings{soubier2026symexe,
+    @inproceedings{Shahid2026symexe,Rachel2026symexe, Dr.Kumara2026symexe,
       title={Characterizing Symbolic Execution Behavior on Evasive Malware},
-      author={Soubier, Rachel and Soubier, Hunter and Ali, Shahid and 
-              Makanahalli Annaiah, Ajay Kumara},
+      author={Rachel Soubier, Shahid Ali andAjay Kumara},
       booktitle={2026 IEEE Computing and Communication Workshop and Conference (CCWC)},
       year={2026},
       organization={IEEE}
@@ -153,7 +152,7 @@ SANDBOX_EVASION_APIS = {
     'WaitForMultipleObjects', 'GetIdleTime', 'GetTickCount64'
 }
 
-# Process Injection APIs (from - TrickBot, LokiBot, IcedID techniques)
+# Process Injection APIs (from paper - TrickBot, LokiBot, IcedID techniques)
 PROCESS_INJECTION_APIS = {
     'CreateRemoteThread', 'WriteProcessMemory', 'VirtualAllocEx', 'OpenProcess',
     'SetThreadContext', 'GetThreadContext', 'ResumeThread', 'SuspendThread',
@@ -169,14 +168,14 @@ CRYPTO_APIS = {
     'CryptReleaseContext', 'CryptDestroyHash', 'CryptDestroyKey'
 }
 
-# Persistence APIs (from malware families)
+# Persistence APIs (from paper malware families)
 PERSISTENCE_APIS = {
     'RegCreateKeyExA', 'RegCreateKeyExW', 'RegSetValueExA', 'RegSetValueExW',
     'CreateServiceA', 'CreateServiceW', 'StartServiceA', 'StartServiceW',
     'SetWindowsHookExA', 'SetWindowsHookExW', 'SHGetFolderPathA'
 }
 
-# VM Indicator Strings (from - anti-VM detection)
+# VM Indicator Strings (from paper - anti-VM detection)
 VM_INDICATORS = [
     'vmware', 'virtualbox', 'vbox', 'qemu', 'xen', 'parallels',
     'vmtoolsd', 'vmmouse', 'vmhgfs', 'vboxservice', 'vboxtray',
@@ -268,6 +267,9 @@ class EvasionSymbolicExecutor:
                 print(f"    File: {binary_path.name}")
                 print(f"    Size: {binary_path.stat().st_size / 1024:.2f} KB")
                 print(f"    SHA256: {file_hash[:16]}...")
+            
+            # Store file size for results
+            self.binary_size = binary_path.stat().st_size
             
             # Load binary
             if self.verbose:
@@ -854,7 +856,7 @@ class EvasionSymbolicExecutor:
         total_se = sum(len(v) for k, v in self.evasion_techniques.items() 
                       if k.startswith('se_evasion_'))
         
-        # Scoring methodology (from paper)
+        # Scoring methodology
         score = 0
         
         # Static evasion indicators (up to 60 points)
@@ -881,7 +883,7 @@ class EvasionSymbolicExecutor:
         
         score = min(100, int(score))
         
-        # Classification thresholds (from paper methodology)
+        # Classification thresholds
         if score >= 70:
             classification = "HIGHLY EVASIVE"
         elif score >= 40:
@@ -903,6 +905,7 @@ class EvasionSymbolicExecutor:
         self.results = {
             'binary': self.binary_path,
             'binary_name': Path(self.binary_path).name,
+            'binary_size': getattr(self, 'binary_size', 0),  # File size in bytes
             'sha256': getattr(self, 'file_hash', 'unknown'),
             'timestamp': datetime.now().isoformat(),
             'classification': classification,
@@ -920,7 +923,7 @@ class EvasionSymbolicExecutor:
                 'states_analyzed': len(self.paths_log),              # Paper: "States Analyzed"
                 'paths_explored': len(self.paths_explored),           # Paper: paths explored
                 'constraints_solved': self.constraints_found,         # Paper: "Constraints Solved"
-                'execution_time_seconds': round(self.execution_time, 2),  # Paper: "Execution Time"
+                'execution_time': round(self.execution_time, 2),  # Paper: "Execution Time"
                 'memory_usage_mb': 0,  # Placeholder for memory tracking
                 'code_coverage_percent': 0,  # Placeholder for coverage tracking
                 'states_to_paths_ratio': round(states_to_paths_ratio, 2),
@@ -1191,4 +1194,3 @@ if __name__ == '__main__':
 
 
 # End of SymExE Implementation
-
