@@ -3,12 +3,10 @@
 SymExE - Symbolic Execution for Evasive Malware Analysis
 ==========================================================
 
-Research tool for IEEE CCWC 2026 Paper:
 "Characterizing Symbolic Execution Behavior on Evasive Malware"
 
 Authors:
     Rachel Soubier (rcs2002@uncw.edu)
-    Hunter Soubier
     Shahid Ali (sal9310@uncw.edu)  
     Dr. Ajay Kumara Makanahalli Annaiah (makanahalliannaiaha@uncw.edu)
 
@@ -1002,7 +1000,7 @@ class EvasionSymbolicExecutor:
         print(f"  States Analyzed: {stats['states_analyzed']}")
         print(f"  Paths Explored: {stats['paths_explored']}")
         print(f"  States-to-Paths Ratio: {stats['states_to_paths_ratio']:.2f}:1")
-        print(f"  Constraints Found: {stats['constraints_found']}")
+        print(f"  Constraints Solved: {stats.get('constraints_solved', 0)}")
         print(f"  Avg Constraints/State: {stats['avg_constraints_per_state']:.1f}")
         print(f"  Execution Time: {stats['execution_time']:.2f}s\n")
     
@@ -1035,7 +1033,7 @@ class EvasionSymbolicExecutor:
             'evasiveness_score': self.results.get('evasiveness_score', 0),
             'states_analyzed': self.results['symbolic_execution_stats']['states_analyzed'],
             'paths_explored': self.results['symbolic_execution_stats']['paths_explored'],
-            'constraints_found': self.results['symbolic_execution_stats']['constraints_found'],
+            'constraints_solved': self.results['symbolic_execution_stats'].get('constraints_solved', 0),
             'execution_time': self.results['symbolic_execution_stats']['execution_time'],
             'anti_debug_count': self.results['summary']['anti_debug_count'],
             'anti_vm_count': self.results['summary']['anti_vm_count'],
@@ -1189,11 +1187,8 @@ def main():
 
 if __name__ == '__main__':
     # SymExE - Symbolic Execution for Evasive Malware
-    # Implementation: 1,121 lines of code (as reported in paper)
-    # Research tool for IEEE CCWC 2026
-    # Authors: Soubier et al., UNCW Computer Science Department
     main()
 
 
 # End of SymExE Implementation
-# Total Lines: 1,121 (matching paper methodology section)
+
