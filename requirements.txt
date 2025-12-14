@@ -15,7 +15,7 @@ claripy==9.2.181
 archinfo==9.2.181
 pyvex==9.2.181
 cle==9.2.181
-ailment==9.2.181
+ailment
 
 # ============================================
 # SMT Solver (from paper)
