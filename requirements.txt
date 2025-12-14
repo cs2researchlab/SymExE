@@ -1,6 +1,5 @@
 # SymExE Requirements
-# IEEE CCWC 2026 Paper - Exact Configuration
-# Python 3.13.7 (as specified in paper Page 4)
+# Python 3.13.7
 
 # ============================================
 # Core Dependencies (from paper)
