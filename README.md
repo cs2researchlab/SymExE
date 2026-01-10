@@ -111,21 +111,6 @@ Configuration:
 For Extended Analysis:
 - Increase timeout: --timeout 4500 (75 minutes)
 - For larger datasets or deeper exploration
-
----
-
-
----
-
-## Contact
-
-- Rachel Soubier: rcs2002@uncw.edu
-- Dr. Ajay Kumara: makanahalliannaiaha@uncw.edu
-- Shahid Ali: sal9310@uncw.edu
-
-University of North Carolina Wilmington  
-Department of Computer Science
-
 ---
 
 ## Acknowledgments
